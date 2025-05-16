@@ -16,3 +16,8 @@ This string breaks down as follows:
 Therefore, `amqp://guest:guest@localhost:5672` is a Uniform Resource Identifier (URI) that tells the application to connect to a message broker (such as RabbitMQ) hosted on the same computer, using the `guest` credentials over port 5672.
 
 
+## RABBITMQ  SIMULATION SLOW SUBSCRIBER
+
+![initial_RabbitMQ](img/RABBITMQ_SLOWTHREAD.png)
+
+When the subscriber is intentionally slowed down by introducing a one-second delay for each message, the producer can still continue publishing messages rapidly. As a result, the total number of queued messages increases because the subscriber processes them more slowly than they arrive, leading to a visible buildup in the queue shown in the RabbitMQ dashboard.
