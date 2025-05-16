@@ -21,3 +21,9 @@ Therefore, `amqp://guest:guest@localhost:5672` is a Uniform Resource Identifier 
 ![initial_RabbitMQ](img/RABBITMQ_SLOWTHREAD.png)
 
 When the subscriber is intentionally slowed down by introducing a one-second delay for each message, the producer can still continue publishing messages rapidly. As a result, the total number of queued messages increases because the subscriber processes them more slowly than they arrive, leading to a visible buildup in the queue shown in the RabbitMQ dashboard.
+
+## Multiple Subscriber
+
+![Final_RABBITMQ](img/RABBITMQ_FINAL.png)
+
+When multiple subscriber instances are running, the incoming events from the publisher are distributed among them, allowing messages to be processed in parallel. This parallelism reduces the buildup in the queue faster than before, as reflected by the quicker drop in the queued message spike on the RabbitMQ dashboard.
